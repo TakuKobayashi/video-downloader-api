@@ -7,7 +7,11 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>()
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
+  return c.json({hello: 'Hono'})
+})
+
+app.get('/test', (c) => {
+  return c.json({hello: 'test'})
 })
 
 export default app
